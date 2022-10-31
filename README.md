@@ -3,11 +3,11 @@
  - firebase_core : 2.1.1
  
 #Getting Started
- - To get started : 
+ - To get started : open your terminal and
  -- step 1 : clone my repository : 
- git clone https://github.com/Thiennguyen21it/Flutter-login.git 
+ [ git clone https://github.com/Thiennguyen21it/Flutter-login.git ]
  
- -- step 2 : checkout firebase_login branch 
+ -- step 2 : [ checkout firebase_login branch ]
  
  git checkout branch firebase_login 
  
