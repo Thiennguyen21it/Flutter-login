@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPages extends StatefulWidget {
-  const LoginPages({super.key});
+  final VoidCallback showRegisterPage;
+
+  const LoginPages({super.key, required this.showRegisterPage});
 
   @override
   State<LoginPages> createState() => _LoginPagesState();
@@ -39,13 +41,14 @@ class _LoginPagesState extends State<LoginPages> {
               children: [
                 //logo
                 const Icon(
-                  Icons.android,
-                  size: 100,
+                  Icons.wechat_outlined,
+                  size: 140,
+                  color: Colors.greenAccent,
                 ),
 
                 //hello again textfield
                 Text(
-                  "Hello Again",
+                  "Tmess App",
                   style: GoogleFonts.bebasNeue(
                     fontSize: 52,
                   ),
@@ -70,10 +73,10 @@ class _LoginPagesState extends State<LoginPages> {
                     controller: _emailController,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.white),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12)),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.deepPurple),
+                        borderSide: const BorderSide(color: Colors.red),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       hintText: 'Email',
@@ -83,6 +86,9 @@ class _LoginPagesState extends State<LoginPages> {
                   ),
                 ),
 
+                const SizedBox(
+                  height: 10,
+                ),
                 //password field
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -91,10 +97,10 @@ class _LoginPagesState extends State<LoginPages> {
                     obscureText: true,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.white),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12)),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: Colors.deepPurple),
+                        borderSide: const BorderSide(color: Colors.red),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       hintText: 'Password',
@@ -115,7 +121,7 @@ class _LoginPagesState extends State<LoginPages> {
                     child: Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Colors.green,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Center(
@@ -138,20 +144,23 @@ class _LoginPagesState extends State<LoginPages> {
                 //not a remember ? sign up
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      'Not a remember ?',
+                  children: [
+                    const Text(
+                      'Not a member ?',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      'Register now !',
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      onTap: widget.showRegisterPage,
+                      child: const Text(
+                        'Register now !',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
